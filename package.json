@@ -1,0 +1,37 @@
+{
+  "name": "server-side-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "DEBUG=app nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint":"eslint app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "chalk": "^4.1.0",
+    "cookieparser": "^0.1.0",
+    "debug": "^4.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.4"
+  },
+  "nodemon": {
+    "restartable":"rs",
+    "ignore":["node_modules/**/node_modules"],
+    "delay":"2500"
+  }
+}
