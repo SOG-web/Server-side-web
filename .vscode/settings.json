@@ -1,7 +1,10 @@
 {
   "cSpell.words": [
-    "cookieparser"
+    "cookieparser",
+    "recordset"
   ],
   "eslint.alwaysShowStatus": true,
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": null
 }
