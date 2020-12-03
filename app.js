@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const cookieParser = require('cookieparser');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 // const sql = require('mssql');
 
@@ -36,6 +36,10 @@ const nav = [
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({ secret: 'library' }));
+require('./src/config/passport.js')(app);
+
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(
@@ -47,9 +51,9 @@ app.use(
   express.static(path.join(__dirname, '/node_modules/popper.js/dist')),
 );
 
-const bookRoutes = require('./routes/bookRoutes')(nav);
-const adminRouter = require('./routes/adminRoutes')(nav);
-const authRoutes = require('./routes/authRoutes')(nav);
+const bookRoutes = require('./src/routes/bookRoutes')(nav);
+const adminRouter = require('./src/routes/adminRoutes')(nav);
+const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/books', bookRoutes);
 app.use('/admin', adminRouter);

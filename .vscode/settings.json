@@ -1,10 +1,12 @@
 {
   "cSpell.words": [
     "cookieparser",
+    "goodreads",
     "recordset"
   ],
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": null
+  "editor.codeActionsOnSave": null,
+  "files.autoSave": "afterDelay"
 }

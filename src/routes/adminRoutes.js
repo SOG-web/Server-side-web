@@ -8,12 +8,14 @@ const books = [
     title: 'War and Peace',
     genre: 'Historical Fiction',
     author: 'Lev Nikolayevich Tolstoy',
+    bookId: 656,
     read: false,
   },
   {
     title: 'Les Misérables',
     genre: 'Historical Fiction',
     author: 'Victor Hugo',
+    bookId: 24280,
     read: false,
   },
   {
@@ -67,14 +69,17 @@ function router(nav) {
 
         const db = client.db(dbName);
         const col = await db.collection('books');
-        const ans = col.find();
+        const response = await db.collection('books').insertMany(books);
+        res.json(response);
+        // const ans = await col.find({ books });
 
-        if (ans) {
-          res.send('Data already exist');
-        } else {
-          const response = await db.collection('books').insertMany(books);
-          res.json(response);
-        }
+        // if (ans) {
+        //   debug(ans);
+        //   res.send('Data already exist');
+        // } else {
+        //   const response = await db.collection('books').insertMany(books);
+        //   res.json(response);
+        // }
       } catch (err) {
         debug(err.stack);
       }
